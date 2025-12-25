@@ -114,17 +114,33 @@ Some IDE terminals can be sandboxed and may not have sufficient privileges even 
 
 If your launcher (e.g., Elgato Stream Deck) runs elevated, it can execute the Python script with the correct privileges.
 
-Use the batch wrappers in `batch/`:
+### Recommended setup (no `.bat` editing)
+
+1) Set your devices once (from `--list-devices`):
+
+```bash
+python micmon.py --init-config
+python micmon.py --set-microphone "YOUR MICROPHONE NAME"
+python micmon.py --set-playback "YOUR SPEAKERS NAME"
+```
+
+2. Bind these batch wrappers in `batch/` to your hotkeys:
 
 * `batch/MicMonOnPython.bat`
 * `batch/MicMonOffPython.bat`
 
-Edit them once and replace:
+These wrappers can simply call:
 
-* `YOUR_MIC_NAME_HERE`
-* optional: `YOUR_SPEAKERS_NAME_HERE`
+* `python micmon.py --on`
+* `python micmon.py --off`
 
-Then bind those `.bat` files to Stream Deck buttons.
+### Optional: per-button overrides
+
+If you want a specific button to force default playback or a different device, you can edit the `.bat` to pass CLI args (CLI overrides config), for example:
+
+```bat
+python "%~dp0..\micmon.py" --on --default-playback
+```
 
 ---
 
