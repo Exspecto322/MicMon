@@ -3,7 +3,7 @@
 A small Windows-only utility that enables/disables/toggles the **“Listen to this device”**
 setting for a recording device (microphone) using **pycaw** + Core Audio’s property store.
 
-Includes helper batch wrappers for Stream Deck and an optional alternative using NirSoft SoundVolumeView.
+Includes helper batch wrappers for Hotkey usage and an optional alternative using NirSoft SoundVolumeView.
 
 ## Requirements
 
